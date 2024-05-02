@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  deepstream:
+    image: nvcr.io/nvidia/deepstream:6.4-triton-multiarch
+    container_name: deepstream
+    ports:
+      - "8080:8080"  # Example port mapping
+    volumes:
+      - ./config:/path/to/deepstream/config  # Mount your DeepStream configuration directory
+      # Add more volumes as needed
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all  # Specify GPU devices
+      # Add more environment variables as needed
+    restart: unless-stopped  # Restart the container unless explicitly stopped
