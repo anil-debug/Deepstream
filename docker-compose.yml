@@ -4,12 +4,21 @@ services:
   deepstream:
     image: nvcr.io/nvidia/deepstream:6.4-triton-multiarch
     container_name: deepstream
-    ports:
-      - "8080:8080"  # Example port mapping
-    volumes:
-      - ./config:/path/to/deepstream/config  # Mount your DeepStream configuration directory
-      # Add more volumes as needed
+    network_mode: host  # Use host network mode
+    # runtime: nvidia  # Use the NVIDIA runtime
     environment:
+      - DISPLAY=$DISPLAY  # Forward display for GUI applications
       - NVIDIA_VISIBLE_DEVICES=all  # Specify GPU devices
-      # Add more environment variables as needed
+    devices:
+      - /dev/snd  # Allow access to sound devices
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix  # Forward X11 display socket
+      - ./config:/opt/nvidia/deepstream/deepstream/samples/configs  # Mount your DeepStream configuration directory
     restart: unless-stopped  # Restart the container unless explicitly stopped
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              capabilities: [gpu]
+    command: ["tail", "-f", "/dev/null"]  # Keep the container running
