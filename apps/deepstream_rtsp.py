@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import numpy as np
+# import numpy as np
 import pyds
 from common.FPS import GETFPS
 from common.bus_call import bus_call
