@@ -12,3 +12,10 @@ Clone the `Deepstream` repository:
 ```sh
 git clone <repository_url>
 ```
+## Step 3: Modify the Environment Variables
+Edit the .env file to set the dynamic path to the location where this repository is cloned. Modify the DISPLAY value if necessary.
+## Build the Docker Image
+Build the Docker image using docker-compose:
+```sh
+docker-compose up --build
+```
