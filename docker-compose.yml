@@ -2,23 +2,16 @@ version: '3.8'
 
 services:
   deepstream:
-    image: nvcr.io/nvidia/deepstream:6.4-triton-multiarch
-    container_name: deepstream
-    network_mode: host  # Use host network mode
-    # runtime: nvidia  # Use the NVIDIA runtime
+    build:
+      context: .
+      dockerfile: Dockerfile  # Ensure correct Dockerfile name if different
+    runtime: nvidia
     environment:
-      - DISPLAY=$DISPLAY  # Forward display for GUI applications
-      - NVIDIA_VISIBLE_DEVICES=all  # Specify GPU devices
-    devices:
-      - /dev/snd  # Allow access to sound devices
+      - DISPLAY=${DISPLAY}
+      - DYNAMIC_PATH=${DYNAMIC_PATH}  # Pass DYNAMIC_PATH as an environment variable
     volumes:
-      - /tmp/.X11-unix:/tmp/.X11-unix  # Forward X11 display socket
-      - ./config:/opt/nvidia/deepstream/deepstream/samples/configs  # Mount your DeepStream configuration directory
-    restart: unless-stopped  # Restart the container unless explicitly stopped
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              capabilities: [gpu]
-    command: ["tail", "-f", "/dev/null"]  # Keep the container running
+      - /tmp/.X11-unix/:/tmp/.X11-unix
+      - ${DYNAMIC_PATH}:/opt/nvidia/deepstream/deepstream-7.0/Deepstream  # Use DYNAMIC_PATH here
+    network_mode: host
+    stdin_open: true
+    tty: true
