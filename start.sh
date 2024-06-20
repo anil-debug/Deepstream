@@ -5,14 +5,14 @@ set -e  # Exit immediately if a command exits with a non-zero status
 echo "Starting script..."
 
 # Run user_additional_install.sh script in the current directory
-./user_additional_install.sh
-echo "Ran user_additional_install.sh"
+# ./user_additional_install.sh
+# echo "Ran user_additional_install.sh"
 
-# Check if user_additional_install.sh was successful
-if [ $? -ne 0 ]; then
-  echo "user_additional_install.sh failed"
-  exit 1
-fi
+# # Check if user_additional_install.sh was successful
+# if [ $? -ne 0 ]; then
+#   echo "user_additional_install.sh failed"
+#   exit 1
+# fi
 
 # Check if deepstream-python-apps folder exists
 if [ ! -d "/opt/nvidia/deepstream/deepstream-7.0/sources/deepstream-python-apps" ]; then
@@ -31,7 +31,7 @@ if [ ! -d "/opt/nvidia/deepstream/deepstream-7.0/sources/deepstream-python-apps"
 
     # Check if user_deepstream_python_apps_install.sh --version 1.1.6 was successful
     if [ $install_status -ne 0 ]; then
-      echo "user_deepstream_python_apps_install.sh --version 1.1.6 failed with exit code $install_status"
+      echo "user_deepstream_python_apps_install.sh --version 1.1.11 failed with exit code $install_status"
       # Optionally handle the failure or just log it
     fi
 

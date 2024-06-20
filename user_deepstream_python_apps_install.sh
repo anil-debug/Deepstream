@@ -50,7 +50,9 @@ done
 
 if [ -z "$version" ] && [ -z "$build_bindings" ]; then usage "The version of PyDS to download and install"; fi;
 
-cd /opt/nvidia/deepstream/deepstream
+cd /opt/nvidia/deepstream/deepstream-7.0
+
+./user_additional_install.sh
 echo "####################################"
 echo "Downloading necessary pre-requisites"
 echo "####################################"
