@@ -8,7 +8,6 @@ TensorRT 8.6 GA (8.6.1.6)
 NVIDIA Driver 535 (>= 535.161.08)
 NVIDIA DeepStream SDK 7.0
 GStreamer 1.20.3
-DeepStream-Yolo
 ```
 # Building Deepstream Pipelines with Docker
 
