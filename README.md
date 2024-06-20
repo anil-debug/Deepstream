@@ -6,3 +6,9 @@ This guide outlines the step-by-step implementation on how to run a Deepstream p
 Clone the `deepstream-development` repository:
 ```sh
 git clone <repository_url>
+```
+## Step 2: Enter the Repository Directory
+Clone the `Deepstream` repository:
+```sh
+git clone <repository_url>
+```
