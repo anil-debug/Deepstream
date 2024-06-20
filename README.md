@@ -27,6 +27,6 @@ docker exec -ti $DEEPSTREAM_CONTAINER bash
 ## Step 6
 Run the deepstream pipeline in Deepstream/apps
 ```
-python3 deepstream_rtsp.py rtsp://username:password@ip:port/video ...../n .
+python3 deepstream_test_1.py /opt/nvidia/deepstream/deepstream-7.0/samples/streams/sample_qHD.h264 
 ```
 # Custom Models
