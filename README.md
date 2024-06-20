@@ -1,3 +1,13 @@
+# Pre-requisites
+The following are the libraries and hardware needed for DeepStream 7.0 on x86 platform
+Ubuntu 22.04
+CUDA 12.2 Update 2
+TensorRT 8.6 GA (8.6.1.6)
+NVIDIA Driver 535 (>= 535.161.08)
+NVIDIA DeepStream SDK 7.0
+GStreamer 1.20.3
+DeepStream-Yolo
+
 # Building Deepstream Pipelines with Docker
 
 This guide outlines the step-by-step implementation on how to run a Deepstream pipeline with Docker.
