@@ -41,4 +41,15 @@ Run the deepstream pipeline in Deepstream/apps
 ```
 python3 deepstream_test_1.py /opt/nvidia/deepstream/deepstream-7.0/samples/streams/sample_qHD.h264 
 ```
-# Custom Models
+# Running the Custom Models
+If you wish to use your own custom model and by defualt no need to compile cpp but if you change the post-processing code which is implemented in cpp make sure to compile the libraries by using below command
+```
+export CUDA_VER=12.1
+make -C cpp
+make
+```
+or
+```
+CUDA_VER=12.1 make -C cpp
+```
+
