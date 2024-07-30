@@ -1,3 +1,14 @@
+# Pre-requisites
+
+The following are the libraries and hardware needed for DeepStream 7.0 on x86 platform
+```
+Ubuntu 22.04
+CUDA 12.2 Update 2
+TensorRT 8.6 GA (8.6.1.6)
+NVIDIA Driver 535 (>= 535.161.08)
+NVIDIA DeepStream SDK 7.0
+GStreamer 1.20.3
+```
 # Building Deepstream Pipelines with Docker
 
 This guide outlines the step-by-step implementation on how to run a Deepstream pipeline with Docker.
@@ -27,6 +38,17 @@ docker exec -ti $DEEPSTREAM_CONTAINER bash
 ## Step 6
 Run the deepstream pipeline in Deepstream/apps
 ```
-python3 deepstream_rtsp.py rtsp://username:password@ip:port/video ...../n .
+python3 deepstream_test_1.py /opt/nvidia/deepstream/deepstream-7.0/samples/streams/sample_qHD.h264 
 ```
-# Custom Models
+# Running the Custom Models
+If you wish to use your own custom model and by defualt no need to compile cpp but if you change the post-processing code which is implemented in cpp make sure to compile the libraries by using below command
+```
+export CUDA_VER=12.1
+make -C cpp
+make
+```
+or
+```
+CUDA_VER=12.1 make -C cpp
+```
+
